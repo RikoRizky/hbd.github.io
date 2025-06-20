@@ -479,6 +479,13 @@
             }
           }, 200);
         }, 1000);
+
+        // Fallback: jika autoplay gagal, play saat user klik
+        document.body.addEventListener('click', function playMusicOnClick() {
+          if (audio.paused) {
+            audio.play();
+          }
+        }, { once: true });
       });
     </script>
 
@@ -654,66 +661,58 @@
         let W = window.innerWidth, H = window.innerHeight;
         canvas.width = W; canvas.height = H;
         let confs = Array.from({length: 35}, () => ({
-          x: Math.random()*W,
-          y: Math.random()*H,
-          r: Math.random()*6+4,
-          d: Math.random()*80+40,
-          color: `hsl(${Math.random()*360},80%,60%)`,
-          tilt: Math.random()*10-10,
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 80 + 40,
+          color: `hsl(${Math.random() * 360},80%,60%)`,
+          tilt: Math.random() * 10 - 10,
           tiltAngle: 0,
-          tiltAngleInc: (Math.random()*0.07)+.05
+          tiltAngleInc: (Math.random() * 0.07) + .05
         }));
+    
         function draw() {
-          ctx.clearRect(0,0,W,H);
+          ctx.clearRect(0, 0, W, H);
           confs.forEach(c => {
             ctx.beginPath();
             ctx.lineWidth = c.r;
             ctx.strokeStyle = c.color;
-            ctx.moveTo(c.x + c.tilt + c.r/3, c.y);
-            ctx.lineTo(c.x, c.y + c.tilt + c.r/3);
+            ctx.moveTo(c.x + c.tilt + c.r / 3, c.y);
+            ctx.lineTo(c.x, c.y + c.tilt + c.r / 3);
             ctx.stroke();
           });
           update();
         }
+    
         function update() {
           confs.forEach(c => {
-            c.y += Math.cos(c.d) + 1 + c.r/2;
+            c.y += Math.cos(c.d) + 1 + c.r / 2;
             c.x += Math.sin(0.5) * 2;
             c.tiltAngle += c.tiltAngleInc;
             c.tilt = Math.sin(c.tiltAngle) * 15;
             if (c.y > H) {
-              c.x = Math.random()*W;
+              c.x = Math.random() * W;
               c.y = -10;
             }
           });
         }
+    
         function loop() {
           draw();
           requestAnimationFrame(loop);
         }
+    
         loop();
+    
         window.addEventListener('resize', () => {
           W = window.innerWidth; H = window.innerHeight;
           canvas.width = W; canvas.height = H;
         });
       }
+    
       window.addEventListener('load', () => {
         startConfetti();
-        const audio = document.getElementById('bgMusic');
-        let audioPlayed = false;
-        setTimeout(() => {
-          audio.play().then(() => {
-            audioPlayed = true;
-          }).catch(() => {
-            audioPlayed = false;
-          });
-        }, 2000);
-        document.body.addEventListener('click', function playMusicOnClick() {
-          if (!audioPlayed) {
-            audio.play();
-            audioPlayed = true;
-          }
-        }, { once: true });
+    
         // Setelah tulisan muncul, render balon gift
         setTimeout(() => {
           function makeBalloonGift(id, url) {
@@ -728,18 +727,19 @@
               </div>
             `;
             const gift = el.querySelector('.gift');
-            gift.addEventListener('click', function() {
+            gift.addEventListener('click', function () {
               gift.classList.add('open');
               setTimeout(() => {
                 window.location.href = url;
               }, 700);
             });
           }
+    
           makeBalloonGift('balloonGift1', 'flower.html');
           makeBalloonGift('balloonGift2', 'flower.html');
           makeBalloonGift('balloonGift3', 'flower.html');
         }, 9500);
       });
-    </script>   
+    </script>    
   </body>
 </html>
