@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOR YOU</title>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700|Montserrat:400,600&display=swap" rel="stylesheet"/>
-    <audio id="bgMusic" src="https://cdn.pixabay.com/audio/2022/12/11/audio_1c9e3a4f94.mp3" preload="auto"></audio>
+    <link rel="icon" href="download__7_-removebg-preview.png" type="image/x-icon">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
       @keyframes flyUp {
@@ -417,6 +417,29 @@
   .balloon-gift.right {
     left: 74vw !important;
     animation-name: balloonGiftUpRightDesktop !important;
+  }
+}
+@media (max-width: 600px) {
+  .balloon-gift {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 999 !important;
+  }
+  .balloon-gift.left {
+    left: calc(50% - 140px) !important;
+    top: 72px !important;
+    transform: none !important;
+  }
+  .balloon-gift.center {
+    left: 50% !important;
+    top: 24px !important;
+    transform: translateX(-50%) !important;
+  }
+  .balloon-gift.right {
+    left: calc(50% + 140px - 60px) !important;
+    top: 72px !important;
+    right: auto !important;
+    transform: none !important;
   }
 }
 
