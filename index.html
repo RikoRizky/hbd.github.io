@@ -205,200 +205,195 @@
         z-index: 2;
       }
       /* Balon & Kado Custom */
-      .balloon-gift {
-        position: absolute;
-        bottom: -120px;
-        width: 60px;
-        height: 180px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 20;
-        opacity: 0;
-        animation: balloonGiftUp 2.5s cubic-bezier(.4,1.6,.6,1) forwards;
-        animation-delay: 9.5s;
-      }
-      .balloon-gift.left { animation-name: balloonGiftUpLeft; }
-      .balloon-gift.right { animation-name: balloonGiftUpRight; }
-      .balloon-gift.center { animation-name: balloonGiftUpCenter; }
-      @keyframes balloonGiftUpLeft {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-550px); }
-        100% { opacity: 1; transform: translateY(-550px); }
-      }
-      @keyframes balloonGiftUpRight {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-550px); }
-        100% { opacity: 1; transform: translateY(-550px); }
-      }
-      @keyframes balloonGiftUpCenter {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-595px); }
-        100% { opacity: 1; transform: translateY(-595px); }
-      }
-      .balloon-gift .balloon,
-      .balloon-gift .string,
-      .balloon-gift .gift {
-        will-change: transform;
-      }
-      .balloon-gift.left .balloon,
-      .balloon-gift.left .string,
-      .balloon-gift.left .gift {
-        animation: floatLeft 2.7s ease-in-out infinite;
-      }
-      .balloon-gift.right .balloon,
-      .balloon-gift.right .string,
-      .balloon-gift.right .gift {
-        animation: floatRight 2.5s ease-in-out infinite;
-      }
-      .balloon-gift.center .balloon,
-      .balloon-gift.center .string,
-      .balloon-gift.center .gift {
-        animation: floatCenter 2.9s ease-in-out infinite;
-      }
-      @keyframes floatLeft {
-        0% { transform: translateY(0) rotate(-2deg); }
-        50% { transform: translateY(-16px) rotate(2deg); }
-        100% { transform: translateY(0) rotate(-2deg); }
-      }
-      @keyframes floatRight {
-        0% { transform: translateY(0) rotate(2deg); }
-        50% { transform: translateY(-14px) rotate(-2deg); }
-        100% { transform: translateY(0) rotate(2deg); }
-      }
-      @keyframes floatCenter {
-        0% { transform: translateY(0) scale(1.01); }
-        50% { transform: translateY(-22px) scale(1.04); }
-        100% { transform: translateY(0) scale(1.01); }
-      }
-      .balloon-gift .balloon {
-        width: 48px;
-        height: 68px;
-        background: radial-gradient(circle at 30% 30%, #ffb347, #e66767 80%, #fff0 100%);
-        border-radius: 50% 50% 45% 45%;
-        box-shadow: 0 8px 24px 0 rgba(0,0,0,0.18), 0 0 0 8px rgba(255,255,255,0.08) inset;
-        position: relative;
-        z-index: 2;
-      }
-      .balloon-gift .string {
-        width: 2px;
-        height: 60px;
-        background: repeating-linear-gradient(180deg, #aaa 0 6px, #fff 6px 12px);
-        margin-top: -2px;
-        z-index: 1;
-      }
-      .balloon-gift .gift {
-        width: 38px;
-        height: 38px;
-        background: linear-gradient(135deg, #fbc2eb 60%, #a6c1ee 100%);
-        border-radius: 7px 7px 10px 10px;
-        box-shadow: 0 4px 12px 0 rgba(31,38,135,0.13);
-        position: relative;
-        margin-top: -2px;
-        cursor: pointer;
-        transition: box-shadow 0.2s;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-      }
-      .balloon-gift .gift:hover {
-        box-shadow: 0 8px 24px 0 rgba(31,38,135,0.22);
-      }
-      .balloon-gift .gift .lid {
-        position: absolute;
-        top: -10px;
-        left: 0;
-        width: 38px;
-        height: 14px;
-        background: #e66767;
-        border-radius: 6px 6px 4px 4px;
-        transition: transform 0.5s cubic-bezier(.4,2,.6,1);
-        z-index: 2;
-      }
-      .balloon-gift .gift.open .lid {
-        transform: rotate(-60deg) translateY(-30px);
-      }
-      .balloon-gift .gift .ribbon {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 8px;
-        height: 38px;
-        background: #fff;
-        border-radius: 4px;
-        transform: translateX(-50%);
-        z-index: 3;
-      }
-      .balloon-gift .gift .bow {
-        position: absolute;
-        top: -12px;
-        left: 50%;
-        width: 18px;
-        height: 18px;
-        background: none;
-        z-index: 4;
-        transform: translateX(-50%);
-      }
-      .balloon-gift .gift .bow::before,
-      .balloon-gift .gift .bow::after {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #fbc2eb;
-      }
-      .balloon-gift .gift .bow::before {
-        left: 0;
-        top: 4px;
-      }
-      .balloon-gift .gift .bow::after {
-        right: 0;
-        top: 4px;
-      }
-      @keyframes balloonGiftUp {
-        0% {
-          opacity: 0;
-          transform: translateY(0);
-        }
-        10% {
-          opacity: 1;
-        }
-        80% {
-          opacity: 1;
-          transform: translateY(-620px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(-620px);
-        }
-      }
-      /* Keyframes khusus desktop */
-      @keyframes balloonGiftUpLeftDesktop {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-650px); }
-        100% { opacity: 1; transform: translateY(-650px); }
-      }
-      @keyframes balloonGiftUpRightDesktop {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-650px); }
-        100% { opacity: 1; transform: translateY(-650px); }
-      }
-      @keyframes balloonGiftUpCenterDesktop {
-        0% { opacity: 0; transform: translateY(0); }
-        10% { opacity: 1; }
-        80% { opacity: 1; transform: translateY(-780px); }
-        100% { opacity: 1; transform: translateY(-780px); }
-      }
-      @media (min-width: 800px) {
+.balloon-gift {
+  position: absolute;
+  bottom: -120px;
+  width: 60px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+  opacity: 0;
+  animation: balloonGiftUp 2.5s cubic-bezier(.4,1.6,.6,1) forwards;
+  animation-delay: 9.5s;
+}
+.balloon-gift.left { animation-name: balloonGiftUpLeft; }
+.balloon-gift.right { animation-name: balloonGiftUpRight; }
+.balloon-gift.center { animation-name: balloonGiftUpCenter; }
+
+@keyframes balloonGiftUpLeft {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-550px); }
+  100% { opacity: 1; transform: translateY(-550px); }
+}
+@keyframes balloonGiftUpRight {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-550px); }
+  100% { opacity: 1; transform: translateY(-550px); }
+}
+@keyframes balloonGiftUpCenter {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-595px); }
+  100% { opacity: 1; transform: translateY(-595px); }
+}
+
+.balloon-gift .balloon,
+.balloon-gift .string,
+.balloon-gift .gift {
+  will-change: transform;
+}
+.balloon-gift.left .balloon,
+.balloon-gift.left .string,
+.balloon-gift.left .gift {
+  animation: floatLeft 2.7s ease-in-out infinite;
+}
+.balloon-gift.right .balloon,
+.balloon-gift.right .string,
+.balloon-gift.right .gift {
+  animation: floatRight 2.5s ease-in-out infinite;
+}
+.balloon-gift.center .balloon,
+.balloon-gift.center .string,
+.balloon-gift.center .gift {
+  animation: floatCenter 2.9s ease-in-out infinite;
+}
+@keyframes floatLeft {
+  0% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-16px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+@keyframes floatRight {
+  0% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(2deg); }
+}
+@keyframes floatCenter {
+  0% { transform: translateY(0) scale(1.01); }
+  50% { transform: translateY(-22px) scale(1.04); }
+  100% { transform: translateY(0) scale(1.01); }
+}
+.balloon-gift .balloon {
+  width: 48px;
+  height: 68px;
+  background: radial-gradient(circle at 30% 30%, #ffb347, #e66767 80%, #fff0 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.18), 0 0 0 8px rgba(255,255,255,0.08) inset;
+  position: relative;
+  z-index: 2;
+}
+.balloon-gift .string {
+  width: 2px;
+  height: 60px;
+  background: repeating-linear-gradient(180deg, #aaa 0 6px, #fff 6px 12px);
+  margin-top: -2px;
+  z-index: 1;
+}
+.balloon-gift .gift {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #fbc2eb 60%, #a6c1ee 100%);
+  border-radius: 7px 7px 10px 10px;
+  box-shadow: 0 4px 12px 0 rgba(31,38,135,0.13);
+  position: relative;
+  margin-top: -2px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.balloon-gift .gift:hover {
+  box-shadow: 0 8px 24px 0 rgba(31,38,135,0.22);
+}
+.balloon-gift .gift .lid {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 38px;
+  height: 14px;
+  background: #e66767;
+  border-radius: 6px 6px 4px 4px;
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+  z-index: 2;
+}
+.balloon-gift .gift.open .lid {
+  transform: rotate(-60deg) translateY(-30px);
+}
+.balloon-gift .gift .ribbon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 38px;
+  background: #fff;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.balloon-gift .gift .bow {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: none;
+  z-index: 4;
+  transform: translateX(-50%);
+}
+.balloon-gift .gift .bow::before,
+.balloon-gift .gift .bow::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fbc2eb;
+}
+.balloon-gift .gift .bow::before {
+  left: 0;
+  top: 4px;
+}
+.balloon-gift .gift .bow::after {
+  right: 0;
+  top: 4px;
+}
+
+@keyframes balloonGiftUp {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-620px); }
+  100% { opacity: 1; transform: translateY(-620px); }
+}
+
+/* Keyframes khusus desktop */
+@keyframes balloonGiftUpLeftDesktop {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-650px); }
+  100% { opacity: 1; transform: translateY(-650px); }
+}
+@keyframes balloonGiftUpRightDesktop {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-650px); }
+  100% { opacity: 1; transform: translateY(-650px); }
+}
+@keyframes balloonGiftUpCenterDesktop {
+  0% { opacity: 0; transform: translateY(0); }
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(-780px); }
+  100% { opacity: 1; transform: translateY(-780px); }
+}
+
+/* Media Query Desktop */
+@media (min-width: 800px) {
   .balloon-gift {
     position: absolute;
-    top: 800px;     /* Cukup jauh untuk muncul dari bawah, tapi masih terlihat */
+    top: 800px;
     bottom: auto;
     opacity: 0;
     z-index: 999;
@@ -419,33 +414,74 @@
     animation-name: balloonGiftUpRightDesktop !important;
   }
 }
+
+/* ✅ Media Query Mobile - animasi naik dari bawah */
 @media (max-width: 600px) {
   .balloon-gift {
-    position: fixed !important;
-    margin: 0 !important;
-    z-index: 999 !important;
+    position: fixed;
+    top: 100vh; /* mulai dari bawah layar */
+    opacity: 0;
+    z-index: 999;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 9.5s;
   }
-  .balloon-gift.left {
-    left: calc(50% - 140px) !important;
-    top: 72px !important;
-    transform: none !important;
+
+  .balloon-gift.left { animation-name: balloonFlyLeftMobile; }
+      .balloon-gift.right { animation-name: balloonFlyRightMobile;; }
+      .balloon-gift.center { animation-name: balloonFlyCenterMobile; }
+
+  /* Keyframes: naik lebih tinggi dan sejajar rapi */
+  @keyframes balloonFlyLeftMobile {
+    0%   { opacity: 0; top: 100vh; }
+    10%  { opacity: 1; }
+    100% { opacity: 1; top: 10vh; }
   }
-  .balloon-gift.center {
-    left: 50% !important;
-    top: 24px !important;
-    transform: translateX(-50%) !important;
+
+  @keyframes balloonFlyCenterMobile {
+    0%   { opacity: 0; top: 100vh; }
+    10%  { opacity: 1; }
+    100% { opacity: 1; top: 3vh; }
   }
-  .balloon-gift.right {
-    left: calc(50% + 140px - 60px) !important;
-    top: 72px !important;
-    right: auto !important;
-    transform: none !important;
+
+  @keyframes balloonFlyRightMobile {
+    0%   { opacity: 0; top: 100vh; }
+    10%  { opacity: 1; }
+    100% { opacity: 1; top: 10vh; }
   }
 }
+
 
     </style>
   </head>
   <body>
+    <audio id="bgAudio" autoplay muted loop>
+      <source src="Best Day of My Life.mp3" type="audio/mp3">
+    </audio>
+    
+    <script>
+      window.addEventListener('load', function () {
+        const audio = document.getElementById('bgAudio');
+        audio.play(); // autoplay dimulai karena muted
+    
+        // Setelah 1 detik, hilangkan mute dan naikkan volume pelan-pelan
+        setTimeout(() => {
+          audio.muted = false;
+          audio.volume = 0;
+          let vol = 0;
+          const fade = setInterval(() => {
+            if (vol < 1) {
+              vol += 0.1;
+              audio.volume = vol;
+            } else {
+              clearInterval(fade);
+            }
+          }, 200);
+        }, 1000);
+      });
+    </script>
+
     <canvas class="confetti"></canvas>
     <div class="cake">
       <div class="fuego"></div>
