@@ -9,10 +9,21 @@
 <!-- partial:index.partial.html -->
 <body class="container">
   <audio id="bgAudio" autoplay muted loop>
-    <source src="AudioF.mp3" type="audio/mp3">
+    <source src="AudioSee.mp3" type="audio/mp3">
   </audio>
-  
+
   <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bgAudio");
+  
+      // Unmute dan mulai dari detik 0 saat halaman dibuka
+      audio.muted = false;
+      audio.currentTime = 0;
+      audio.play().catch(e => console.warn("Autoplay gagal:", e));
+    });
+  </script>
+  
+  <!-- <script>
     window.addEventListener('load', function () {
       const audio = document.getElementById('bgAudio');
       audio.play(); // autoplay dimulai karena muted
@@ -32,7 +43,7 @@
         }, 200);
       }, 1000);
     });
-  </script>
+  </script> -->
   
 
   <div class="night"></div>
