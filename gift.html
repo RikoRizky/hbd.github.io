@@ -29,7 +29,15 @@
       }
 
       body {
-        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        background: url('1000429894.png') no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      /* Mobile background adjustment */
+      @media (max-width: 600px) {
+        body {
+          background-position: 80% center;
+        }
       }
 
       .name{
@@ -40,7 +48,7 @@
       #cake {
         display: block;
         position: relative;
-        margin: -10em auto 0 auto;
+        margin: -7em auto 0 auto;
       }
 
       /* ============================================== Candle
@@ -50,13 +58,13 @@
         background: #ffffff;
         border-radius: 10px;
         position: absolute;
-        top: 228px;
+        top: 180px;
         left: 50%;
         margin-left: -2.4px;
-        margin-top: -8.33333333px;
+        margin-top: 0;
         width: 5px;
         height: 35px;
-        transform: translateY(-300px);
+        transform: translateY(-200px);
         backface-visibility: hidden;
         animation: in 500ms 6s ease-out forwards;
       }
@@ -83,7 +91,7 @@
       .fuego {
         border-radius: 100%;
         position: absolute;
-        top: -20px;
+        top: -15px;
         left: 50%;
         margin-left: -2.6px;
         width: 6.66666667px;
@@ -123,79 +131,11 @@
 
       @keyframes in {
         to {
-          transform: translateY(0);
+          transform: translateY(100px);
         }
       }
 
-      .text {
-        color: #8b6a60;
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        font-style: italic;
-        text-align: center;
-        max-width: 350px;
-        margin: 2.5em auto 0 auto;
-        padding: 2em 2em 1.5em 2em;
-        background: rgba(255,255,255,0.55);
-        border-radius: 24px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
-        backdrop-filter: blur(6px);
-        border: 1.5px solid rgba(255,255,255,0.22);
-        opacity: 0;
-        animation: fadeInText 1.5s 7.5s forwards;
-      }
 
-      @keyframes fadeInText {
-        to {
-          opacity: 1;
-        }
-      }
-
-      .text h1 {
-        font-family: 'Dancing Script', cursive;
-        font-size: 2.4em;
-        font-weight: 700;
-        background: linear-gradient(90deg, #e66767 30%, #9e1943 70%);
-        color: #fff;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-fill-color: transparent;
-        margin-bottom: 0.2em;
-        letter-spacing: 1px;
-        text-shadow: 0 2px 16px #fbc2eb, 0 2px 8px #9e194355, 0 4px 32px #a6c1ee99;
-        animation: glow 2.5s 8s infinite alternate;
-      }
-
-      @keyframes glow {
-        from { text-shadow: 0 2px 16px #fbc2eb, 0 2px 8px #9e194355, 0 4px 32px #a6c1ee99; }
-        to { text-shadow: 0 4px 32px #a6c1ee, 0 2px 8px #9e194388, 0 8px 48px #e6676799; }
-      }
-
-      .text p.name {
-        margin: 0.5em 0 0 0;
-        font-size: 1.25em;
-        font-family: 'Montserrat', sans-serif;
-        color: #a86e8c;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-shadow: 0 1px 8px #fff6, 0 2px 8px #e6676744;
-        background: linear-gradient(90deg, #4c6ba1 0%, #f188d3 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-fill-color: transparent;
-      }
-
-      .text p {
-        margin: 0;
-        font-size: 1.1em;
-        font-family: 'Montserrat', sans-serif;
-        color: #7b4c5b;
-        font-weight: 600;
-        letter-spacing: 1px;
-      
-      }
       /* Confetti */
       .confetti {
         position: fixed;
@@ -205,7 +145,7 @@
         z-index: 2;
       }
       /* Balon & Kado Custom */
-.balloon-gift {
+  .balloon-gift {
   position: absolute;
   bottom: -120px;
   width: 60px;
@@ -216,11 +156,11 @@
   z-index: 20;
   opacity: 0;
   animation: balloonGiftUp 2.5s cubic-bezier(.4,1.6,.6,1) forwards;
-  animation-delay: 9.5s;
+  animation-delay: 7s;
 }
 .balloon-gift.left { animation-name: balloonGiftUpLeft; }
+.balloon-gift.center { animation-name: balloonGiftDownCenter; }
 .balloon-gift.right { animation-name: balloonGiftUpRight; }
-.balloon-gift.center { animation-name: balloonGiftUpCenter; }
 
 @keyframes balloonGiftUpLeft {
   0% { opacity: 0; transform: translateY(0); }
@@ -234,12 +174,14 @@
   80% { opacity: 1; transform: translateY(-550px); }
   100% { opacity: 1; transform: translateY(-550px); }
 }
-@keyframes balloonGiftUpCenter {
-  0% { opacity: 0; transform: translateY(0); }
+
+@keyframes balloonGiftDownCenter {
+  0% { opacity: 0; transform: translateY(-800px); }
   10% { opacity: 1; }
-  80% { opacity: 1; transform: translateY(-595px); }
-  100% { opacity: 1; transform: translateY(-595px); }
+  80% { opacity: 1; transform: translateY(-680px); }
+  100% { opacity: 1; transform: translateY(-680px); }
 }
+
 
 .balloon-gift .balloon,
 .balloon-gift .string,
@@ -256,11 +198,7 @@
 .balloon-gift.right .gift {
   animation: floatRight 2.5s ease-in-out infinite;
 }
-.balloon-gift.center .balloon,
-.balloon-gift.center .string,
-.balloon-gift.center .gift {
-  animation: floatCenter 2.9s ease-in-out infinite;
-}
+
 @keyframes floatLeft {
   0% { transform: translateY(0) rotate(-2deg); }
   50% { transform: translateY(-16px) rotate(2deg); }
@@ -271,11 +209,25 @@
   50% { transform: translateY(-14px) rotate(-2deg); }
   100% { transform: translateY(0) rotate(2deg); }
 }
+
+.balloon-gift.center .gift {
+  animation: floatCenter 2.9s ease-in-out infinite, 
+             glowPulse 3s ease-in-out infinite,
+             gentleSway 4s ease-in-out infinite;
+}
+
 @keyframes floatCenter {
   0% { transform: translateY(0) scale(1.01); }
   50% { transform: translateY(-22px) scale(1.04); }
   100% { transform: translateY(0) scale(1.01); }
 }
+
+@keyframes gentleSway {
+  0% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+}
+
 .balloon-gift .balloon {
   width: 48px;
   height: 68px;
@@ -285,6 +237,8 @@
   position: relative;
   z-index: 2;
 }
+      
+
 .balloon-gift .string {
   width: 2px;
   height: 60px;
@@ -309,6 +263,58 @@
 .balloon-gift .gift:hover {
   box-shadow: 0 8px 24px 0 rgba(31,38,135,0.22);
 }
+
+
+
+.scattered-photos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.scattered-photo {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: url('bg.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0;
+  animation: photoDrop 3s ease-out forwards;
+}
+
+.scattered-photo:nth-child(1) {
+  left: 20%;
+  top: -100px;
+  animation-delay: 6.5s;
+}
+
+.scattered-photo:nth-child(2) {
+  left: 35%;
+  top: -150px;
+  animation-delay: 6.7s;
+}
+
+.scattered-photo:nth-child(3) {
+  left: 50%;
+  top: -200px;
+  animation-delay: 6.9s;
+}
+
+.scattered-photo:nth-child(4) {
+  left: 65%;
+  top: -120px;
+  animation-delay: 7.1s;
+}
+
+.scattered-photo:nth-child(5) {
+  left: 80%;
+  top: -180px;
+  animation-delay: 7.3s;
+}
+
+
 .balloon-gift .gift .lid {
   position: absolute;
   top: -10px;
@@ -357,6 +363,34 @@
   left: 0;
   top: 4px;
 }
+
+/* Styling khusus untuk balon tengah */
+.balloon-gift.center .balloon {
+  display: none;
+}
+
+.balloon-gift.center .string {
+  display: none;
+}
+
+.balloon-gift.center .gift {
+  width: 500px;
+  height: 500px;
+  background: url('bg.png') no-repeat center center;
+  background-size: contain;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 1;
+  margin-top: 0;
+  cursor: pointer;
+  z-index: 25;
+}
+
+.balloon-gift.center .gift .lid,
+.balloon-gift.center .gift .ribbon,
+.balloon-gift.center .gift .bow {
+  display: none;
+}
 .balloon-gift .gift .bow::after {
   right: 0;
   top: 4px;
@@ -382,12 +416,14 @@
   80% { opacity: 1; transform: translateY(-650px); }
   100% { opacity: 1; transform: translateY(-650px); }
 }
-@keyframes balloonGiftUpCenterDesktop {
-  0% { opacity: 0; transform: translateY(0); }
+
+@keyframes balloonGiftDownCenterDesktop {
+  0% { opacity: 0; transform: translateY(-1000px); }
   10% { opacity: 1; }
   80% { opacity: 1; transform: translateY(-780px); }
   100% { opacity: 1; transform: translateY(-780px); }
 }
+
 
 /* Media Query Desktop */
 @media (min-width: 800px) {
@@ -406,8 +442,10 @@
 
   .balloon-gift.center {
     left: 48vw !important;
-    animation-name: balloonGiftUpCenterDesktop !important;
+    animation-name: balloonGiftDownCenterDesktop !important;
   }
+
+
 
   .balloon-gift.right {
     left: 74vw !important;
@@ -425,12 +463,13 @@
     animation-duration: 2.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    animation-delay: 9.5s;
+    animation-delay: 7s;
   }
 
   .balloon-gift.left { animation-name: balloonFlyLeftMobile; }
-      .balloon-gift.right { animation-name: balloonFlyRightMobile;; }
-      .balloon-gift.center { animation-name: balloonFlyCenterMobile; }
+  .balloon-gift.center { animation-name: balloonFlyDownCenterMobile; }
+  .balloon-gift.right { animation-name: balloonFlyRightMobile; }
+
 
   /* Keyframes: naik lebih tinggi dan sejajar rapi */
   @keyframes balloonFlyLeftMobile {
@@ -439,16 +478,37 @@
     100% { opacity: 1; top: 10vh; }
   }
 
-  @keyframes balloonFlyCenterMobile {
-    0%   { opacity: 0; top: 100vh; }
-    10%  { opacity: 1; }
-    100% { opacity: 1; top: 3vh; }
+
+
+@keyframes photoDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(0deg);
   }
+  20% {
+    opacity: 1;
+    transform: translateY(0px) rotate(10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(200px) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(300px) rotate(0deg);
+  }
+}
 
   @keyframes balloonFlyRightMobile {
     0%   { opacity: 0; top: 100vh; }
     10%  { opacity: 1; }
     100% { opacity: 1; top: 10vh; }
+  }
+
+  @keyframes balloonFlyDownCenterMobile {
+    0%   { opacity: 0; top: -80vh; }
+    10%  { opacity: 1; }
+    100% { opacity: 1; top: 5vh; }
   }
 }
 
@@ -597,7 +657,7 @@
       C177.667,459.569,177.666,475.571,173.667,475.571z
                             " />
       </path>
-      <path fill="#fefae9" d="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
+      <path fill="#fffeea" d="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
     c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181
     C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711
     c0,7.618,0,22.854,0,30.472c0,4.952,0,14.854,0,19.807C104.812,96.292,104.812,107.576,104.812,113.216z">
@@ -645,10 +705,7 @@
       </path>
       <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
     </svg>
-    <div class="text">
-    <h1>Happy Birthday!</h1>
-    <p class="name">Putri Muthiah Salsabila</p>
-    </div>
+
     <!-- Balon Gift -->
     <div class="balloon-gift left" id="balloonGift1" style="left: 12vw;"></div>
     <div class="balloon-gift center" id="balloonGift2" style="left: 45vw;"></div>
@@ -713,7 +770,7 @@
       window.addEventListener('load', () => {
         startConfetti();
     
-        // Setelah tulisan muncul, render balon gift
+        // Setelah kue muncul, render balon gift
         setTimeout(() => {
           function makeBalloonGift(id, url) {
             const el = document.getElementById(id);
@@ -738,7 +795,7 @@
           makeBalloonGift('balloonGift1', 'flower.html');
           makeBalloonGift('balloonGift2', 'flower.html');
           makeBalloonGift('balloonGift3', 'flower.html');
-        }, 9500);
+        }, 7000);
       });
     </script>    
   </body>
